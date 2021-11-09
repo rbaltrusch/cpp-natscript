@@ -3,7 +3,6 @@
         {
             "name": "Win32",
             "includePath": [
-                "src/interpreter",
                 "${workspaceFolder}/**"
             ],
             "defines": [
