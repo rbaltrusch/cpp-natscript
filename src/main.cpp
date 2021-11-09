@@ -1,16 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <string>
+/*
+Author: R. Baltrusch
+*/
+
+#include "interpreter/lexer.h"
+#include "interpreter/parser.h"
+#include "interpreter/interpreter.h"
 
 using namespace std;
 
 int main()
 {
-    vector<string> msg;
-    msg = {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
-    for (const string& word : msg)
-    {
-        cout << word << "    ";
-    }
-    cout << endl;
+    Lexer lexer;
+    Parser parser;
+    Interpreter interpreter;
 }
