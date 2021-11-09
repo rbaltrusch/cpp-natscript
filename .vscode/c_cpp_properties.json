@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "src/interpreter",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\msys64\\mingw64\\bin\\gcc.exe",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}
