@@ -13,16 +13,19 @@ Author: R. Baltrusch
 #include "token.h"
 #include "value.h"
 
-class TokenFactory {
+class TokenFactory
+{
 
     std::map<std::string, Token> tokens, regexTokens;
     std::map<std::string, std::regex> compiledRegexPatterns;
     int lineNumber;
 
-    public:
-        Token create_token (std::string);
-        static Variable create_variable(std::string);
-        static Value create_value(std::string);
+public:
+    TokenFactory(std::map<std::string, Token>,
+                 std::map<std::string, Token>);
+    Token create_token(std::string);
+    static Variable create_variable(std::string);
+    static Value create_value(std::string);
 };
 
 #endif

@@ -12,15 +12,17 @@ Author: R. Baltrusch
 
 #include "tokenfactory.h"
 
-class Lexer {
+class Lexer
+{
 
     TokenFactory tokenFactory;
 
-    public:
-        std::vector<Token> lex (std::string);
+public:
+    Lexer(TokenFactory);
+    std::vector<Token> lex(std::string);
 
-    private:
-        static std::vector<std::string> split (std::string);
+private:
+    static std::vector<std::string> split(std::string);
 };
 
 #endif
