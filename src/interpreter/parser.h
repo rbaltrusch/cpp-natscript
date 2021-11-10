@@ -6,6 +6,21 @@ Author: R. Baltrusch
 #ifndef PARSER_H
 #define PARSER_H
 
-class Parser{};
+#include <stack>
+#include <vector>
+
+#include "token.h"
+
+class Parser
+{
+
+    std::stack<Token> token_stack;
+
+public:
+    std::vector<Token> parse(std::vector<Token>);
+
+private:
+    static void popLeadingTokens(std::vector<Token>);
+};
 
 #endif
