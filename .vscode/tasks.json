@@ -7,8 +7,12 @@
 			"command": "C:\\msys64\\mingw64\\bin\\g++.exe",
 			"args": [
 				"-fdiagnostics-color=always",
+				"-Wall",
 				"-g",
 				"${file}",
+				"${fileDirname}\\interpreter\\*.cpp",
+				"${fileDirname}\\tokens\\*.cpp",
+				"${fileDirname}\\exceptions\\*.cpp",
 				"-o",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe"
 			],
