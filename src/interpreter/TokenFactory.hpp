@@ -8,22 +8,22 @@ Author: R. Baltrusch
 
 #include <map>
 #include <regex>
-#include <iostream>
+#include <string>
 
-#include "token.h"
-#include "value.h"
+#include "Token.hpp"
+#include "Value.hpp"
 
+class BaseToken;
 class TokenFactory
 {
 
-    std::map<std::string, Token> tokens, regexTokens;
+    ConstructorMap tokens, regexTokens;
     std::map<std::string, std::regex> compiledRegexPatterns;
     int lineNumber;
 
 public:
-    TokenFactory(std::map<std::string, Token>,
-                 std::map<std::string, Token>);
-    Token create_token(std::string);
+    TokenFactory(ConstructorMap tokens, ConstructorMap regexTokens);
+    BaseToken create_token(std::string);
     static Variable create_variable(std::string);
     static Value create_value(std::string);
 };

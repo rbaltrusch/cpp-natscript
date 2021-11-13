@@ -6,7 +6,9 @@ Author: R. Baltrusch
 #ifndef VALUE_H
 #define VALUE_H
 
-class Value{};
+class Value
+{
+};
 
 class Integer : public Value
 {
