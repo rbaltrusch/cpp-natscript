@@ -6,6 +6,8 @@ Author: R. Baltrusch
 #ifndef VALUE_H
 #define VALUE_H
 
+#include <string>
+
 class Value
 {
 };

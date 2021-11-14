@@ -8,8 +8,8 @@ Author: R. Baltrusch
 #include <sstream>
 #include <stdexcept>
 
-#include "Token.hpp"
-#include "TokenFactory.hpp"
+#include "../headers/Token.hpp"
+#include "../headers/TokenFactory.hpp"
 
 TokenFactory::TokenFactory(ConstructorMap tokens, ConstructorMap regexTokens)
     : tokens(tokens),

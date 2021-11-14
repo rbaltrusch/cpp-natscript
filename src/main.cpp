@@ -8,11 +8,11 @@ Author: R. Baltrusch
 #include <string>
 #include <iostream>
 
-#include "interpreter/Token.hpp"
-#include "interpreter/Lexer.hpp"
-#include "interpreter/Parser.hpp"
-#include "interpreter/TokenFactory.hpp"
-#include "interpreter/Interpreter.hpp"
+#include "interpreter/headers/Token.hpp"
+#include "interpreter/headers/Lexer.hpp"
+#include "interpreter/headers/Parser.hpp"
+#include "interpreter/headers/TokenFactory.hpp"
+#include "interpreter/headers/Interpreter.hpp"
 #include "tokens/tokens.hpp"
 
 using namespace std;

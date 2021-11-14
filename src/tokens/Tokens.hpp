@@ -2,8 +2,8 @@
 Author: R. Baltrusch
 */
 
-#include "../interpreter/Token.hpp"
-#include "../interpreter/Interpreter.hpp"
+#include "../interpreter/headers/Token.hpp"
+#include "../interpreter/headers/Interpreter.hpp"
 
 #pragma once
 #ifndef TOKENS_H

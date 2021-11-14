@@ -6,9 +6,9 @@ Author: R. Baltrusch
 #include <vector>
 #include <memory>
 
-#include "Token.hpp"
-#include "Lexer.hpp"
-#include "TokenFactory.hpp"
+#include "../headers/Token.hpp"
+#include "../headers/Lexer.hpp"
+#include "../headers/TokenFactory.hpp"
 
 Lexer::Lexer(TokenFactory &tokenFactory)
     : tokenFactory{tokenFactory} {};

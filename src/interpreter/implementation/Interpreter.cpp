@@ -2,6 +2,6 @@
 Author: R. Baltrusch
 */
 
-#include "Interpreter.hpp"
+#include "../headers/Interpreter.hpp"
 
 Interpreter::Interpreter() : stacks(), variables(){};

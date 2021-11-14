@@ -7,7 +7,7 @@ Author: R. Baltrusch
 #include <string>
 #include <memory>
 
-#include "../interpreter/Token.hpp"
+#include "../interpreter/headers/Token.hpp"
 #include "Tokens.hpp"
 
 //template <class T>
