@@ -12,7 +12,6 @@ Author: R. Baltrusch
 #include <string>
 #include <memory>
 
-//#include "Interpreter.hpp"
 #include "Value.hpp"
 
 /*
@@ -24,7 +23,6 @@ class ExpectedToken:
 
 class BaseToken;
 class TokenFactory;
-class ExpectedToken;
 class Interpreter;
 
 typedef std::any *(*ValueFactory)(void);
