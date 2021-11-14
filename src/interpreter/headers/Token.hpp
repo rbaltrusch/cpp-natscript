@@ -30,6 +30,7 @@ typedef void *(*RunFunction)(Interpreter);
 
 class Token
 {
+protected:
     static std::vector<ExpectedToken> expectedTokens;
     static ValueFactory *valueFactory;
     static TokenFactory *tokenFactory;
