@@ -9,11 +9,11 @@ Author: R. Baltrusch
 #include <map>
 #include <regex>
 #include <string>
+#include <memory>
 
 #include "Token.hpp"
 #include "Value.hpp"
 
-class BaseToken;
 class TokenFactory
 {
 
@@ -23,9 +23,9 @@ class TokenFactory
 
 public:
     TokenFactory(ConstructorMap tokens, ConstructorMap regexTokens);
-    BaseToken create_token(std::string);
-    static Variable create_variable(std::string);
-    static Value create_value(std::string);
+    std::shared_ptr<Token> create_token(const std::string& string);
+    static Variable create_variable(const std::string string);
+    static Value create_value(const std::string string);
 };
 
 #endif
