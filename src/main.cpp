@@ -3,8 +3,10 @@ Author: R. Baltrusch
 */
 
 #include <any>
-#include <iostream>
+#include <vector>
 #include <memory>
+#include <string>
+#include <iostream>
 
 #include "interpreter/Token.hpp"
 #include "interpreter/Lexer.hpp"
@@ -15,7 +17,7 @@ Author: R. Baltrusch
 
 using namespace std;
 
-void print(std::unique_ptr<Token> token) { token->print(); };
+void print(std::shared_ptr<Token> &token) { token->print(); };
 
 int main()
 {
@@ -24,12 +26,19 @@ int main()
 
 
     std::any value = 1;
-    std::unique_ptr<Token> myToken = tokens["a"](value, 1);
+    std::shared_ptr<Token> myToken = tokens["a"](value, 1);
     print(myToken);
     myToken->print();
 
     TokenFactory tokenFactory(tokens, regexTokens);
+
     Lexer lexer(tokenFactory);
+    string text = "this is a test";
+    for (std::shared_ptr<Token> tok : lexer.lex(text))
+    {
+        tok->print();
+    }
+
     Parser parser;
     Interpreter interpreter;
     cout << "done!";
