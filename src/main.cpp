@@ -33,7 +33,7 @@ int main()
     TokenFactory tokenFactory(tokens, regexTokens);
 
     Lexer lexer(tokenFactory);
-    string text = "this is a test";
+    string text = "this is a true test";
     for (std::shared_ptr<Token> tok : lexer.lex(text))
     {
         tok->print();
