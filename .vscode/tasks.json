@@ -10,7 +10,7 @@
 				"-Wall",
 				"-g",
 				"${file}",
-				"${fileDirname}\\interpreter\\*.cpp",
+				"${fileDirname}\\interpreter\\implementation\\*.cpp",
 				"${fileDirname}\\tokens\\*.cpp",
 				"${fileDirname}\\exceptions\\*.cpp",
 				"-o",
