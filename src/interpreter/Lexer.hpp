@@ -8,6 +8,7 @@ Author: R. Baltrusch
 
 #include <vector>
 #include <string>
+#include <memory>
 
 #include "TokenFactory.hpp"
 
@@ -18,7 +19,7 @@ class Lexer
 
 public:
     Lexer(TokenFactory &tokenFactory);
-    std::vector<Token> lex(std::string &text);
+    std::vector<std::shared_ptr<Token>> lex(std::string &text);
 
 protected:
     static std::vector<std::string> split(std::string &text);
