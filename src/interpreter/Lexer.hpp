@@ -20,7 +20,7 @@ public:
     Lexer(TokenFactory &tokenFactory);
     std::vector<Token> lex(std::string &text);
 
-private:
+protected:
     static std::vector<std::string> split(std::string &text);
 };
 
