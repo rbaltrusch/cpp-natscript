@@ -14,12 +14,12 @@ Author: R. Baltrusch
 
 #include "Value.hpp"
 
-/*
-class ExpectedToken:
-    types: Tuple[type]
-    run_order: int = 0
-    optional: bool = False
-*/
+struct ExpectedToken
+{
+    std::vector<int> types{};
+    int run_order{};
+    bool optional{};
+};
 
 class BaseToken;
 class TokenFactory;
@@ -30,14 +30,14 @@ typedef void *(*RunFunction)(Interpreter);
 
 class Token
 {
-    static std::vector<int> expectedTokens;
+    static std::vector<ExpectedToken> expectedTokens;
     static ValueFactory *valueFactory;
     static TokenFactory *tokenFactory;
     std::any value;
     int line;
     int run_order;
     std::vector<Token> tokens;
-    std::vector<int> expectedTokensCopy;
+    std::vector<ExpectedToken> expectedTokensCopy;
 
 public:
     Token(std::any value, int line);
