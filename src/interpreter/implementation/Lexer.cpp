@@ -2,8 +2,8 @@
 Author: R. Baltrusch
 */
 
+#include <deque>
 #include <string>
-#include <vector>
 #include <memory>
 
 #include "../headers/Token.hpp"
@@ -13,10 +13,10 @@ Author: R. Baltrusch
 Lexer::Lexer(TokenFactory &tokenFactory)
     : tokenFactory{tokenFactory} {};
 
-std::vector<std::shared_ptr<Token>> Lexer::lex(std::string &text)
+std::deque<std::shared_ptr<Token>> Lexer::lex(std::string &text)
 {
-    std::vector<std::shared_ptr<Token>> tokens;
-    std::vector<std::string> strings = this->split(text);
+    std::deque<std::shared_ptr<Token>> tokens;
+    std::deque<std::string> strings = this->split(text);
     for ( const std::string& string : strings)
     {
         std::shared_ptr<Token> token = this->tokenFactory.create_token(string);
@@ -25,9 +25,9 @@ std::vector<std::shared_ptr<Token>> Lexer::lex(std::string &text)
     return tokens;
 };
 
-std::vector<std::string> Lexer::split(std::string &text)
+std::deque<std::string> Lexer::split(std::string &text)
 {
-    std::vector<std::string> tokens;
+    std::deque<std::string> tokens;
     std::string delim = " ";
 
     auto start = 0U;

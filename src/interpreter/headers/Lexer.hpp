@@ -6,7 +6,7 @@ Author: R. Baltrusch
 #ifndef LEXER_H
 #define LEXER_H
 
-#include <vector>
+#include <deque>
 #include <string>
 #include <memory>
 
@@ -19,10 +19,10 @@ class Lexer
 
 public:
     Lexer(TokenFactory &tokenFactory);
-    std::vector<std::shared_ptr<Token>> lex(std::string &text);
+    std::deque<std::shared_ptr<Token>> lex(std::string &text);
 
 protected:
-    static std::vector<std::string> split(std::string &text);
+    static std::deque<std::string> split(std::string &text);
 };
 
 #endif

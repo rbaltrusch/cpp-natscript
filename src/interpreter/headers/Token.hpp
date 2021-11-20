@@ -8,6 +8,7 @@ Author: R. Baltrusch
 
 #include <any>
 #include <map>
+#include <deque>
 #include <vector>
 #include <string>
 #include <memory>
@@ -46,7 +47,7 @@ public:
     void run(Interpreter &interpreter);
     bool checkOptionalToken(Token &token);
     void addToken(Token &token);
-    std::vector<Token> popTokens(std::vector<Token> &tokens);
+    std::vector<Token> popTokens(std::deque<std::shared_ptr<Token>> &tokens);
     void updateTokenFactory(TokenFactory &tokenFactory);
     void setValue(std::any *value);
     std::any getValue(void);

@@ -7,7 +7,7 @@ Author: R. Baltrusch
 #define PARSER_H
 
 #include <stack>
-#include <vector>
+#include <deque>
 
 #include "Token.hpp"
 
@@ -18,7 +18,7 @@ class Parser
 
 public:
     Parser();
-    std::vector<Token> parse(std::vector<Token> &tokens);
+    std::vector<Token> parse(std::deque<std::shared_ptr<Token>> &tokens);
 };
 
 #endif
