@@ -43,20 +43,20 @@ protected:
 public:
     Token(std::any value, int line);
     void print(void);
-    void run(Interpreter *interpreter);
+    void run(Interpreter &interpreter);
     bool checkOptionalToken(Token &token);
     void addToken(Token &token);
-    void popTokens(std::vector<Token> *tokens);
-    void updateTokenFactory(TokenFactory *tokenFactory);
+    std::vector<Token> popTokens(std::vector<Token> &tokens);
+    void updateTokenFactory(TokenFactory &tokenFactory);
     void setValue(std::any *value);
     std::any getValue(void);
     bool getFull(void);
     bool getSatisfied(void);
 
 protected:
-    void runSelf(Interpreter *interpreter);
+    void runSelf(Interpreter &interpreter);
     std::vector<RunFunction> getRunFunctions(void);
-    void checkTypes(Token token);
+    void checkTypes(Token &token);
 };
 
 template <class T>
