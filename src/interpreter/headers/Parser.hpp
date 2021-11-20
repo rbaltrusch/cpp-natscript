@@ -18,7 +18,7 @@ class Parser
 
 public:
     Parser();
-    std::vector<Token> parse(std::vector<Token> tokens);
+    std::vector<Token> parse(std::vector<Token> &tokens);
 };
 
 #endif
