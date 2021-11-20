@@ -6,4 +6,4 @@ Author: R. Baltrusch
 
 #include "../headers/Parser.hpp"
 
-Parser::Parser() : token_stack(){};
+Parser::Parser() : tokenStack(){};

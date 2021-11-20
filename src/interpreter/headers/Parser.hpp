@@ -14,7 +14,7 @@ Author: R. Baltrusch
 class Parser
 {
 
-    std::stack<Token> token_stack;
+    std::stack<Token> tokenStack;
 
 public:
     Parser();
