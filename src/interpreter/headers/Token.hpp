@@ -42,9 +42,9 @@ typedef void *(*RunFunction)(Interpreter);
 class Token
 {
 protected:
-    static std::vector<ExpectedToken> expectedTokens;
     static ValueFactory *valueFactory;
     static TokenFactory *tokenFactory;
+
     std::any value;
     int line;
     int run_order;
@@ -54,18 +54,23 @@ protected:
 public:
     Token(std::any value, int line);
     void print(void);
-    void run(Interpreter &interpreter);
+    virtual void run(Interpreter &interpreter);
     bool checkOptionalToken(Token &token);
     void addToken(Token &token);
-    std::vector<Token> popTokens(std::deque<std::shared_ptr<Token>> &tokens){};
-    void updateTokenFactory(TokenFactory &tokenFactory){};
-    void setValue(std::any *value);
+    virtual std::vector<Token> popTokens(std::deque<std::shared_ptr<Token>> &tokens);
+    virtual void updateTokenFactory(TokenFactory &tokenFactory){};
+    void setRunOrder(int runOrder);
+    int getRunOrder(void);
+    virtual void setValue(std::any &value);
     std::any getValue(void);
-    bool getFull(void);
-    bool getSatisfied(void);
+    virtual bool getFull(void);
+    virtual bool getSatisfied(void);
+    virtual int getType(void);
+    static bool checkMatchingTypes(Token &token, ExpectedToken &expectedToken);
 
 protected:
-    void runSelf(Interpreter &interpreter){};
+    virtual std::vector<ExpectedToken> getExpectedTokens(void);
+    virtual void runSelf(Interpreter &interpreter){};
     std::vector<RunFunction> getRunFunctions(void);
     void checkTypes(Token &token);
 };
