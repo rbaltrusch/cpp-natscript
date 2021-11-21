@@ -7,6 +7,7 @@ Author: R. Baltrusch
 #define INTERPRETER_H
 
 #include <map>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -16,19 +17,19 @@ Author: R. Baltrusch
 class Interpreter
 {
 
-    std::vector<std::vector<Value>> stacks;
+    std::stack<std::stack<Value>> stacks;
     std::vector<std::map<std::string, Variable>> variables;
 
 public:
     Interpreter();
-    void interpret(Token *token);
+    void interpret(Token &token);
     void addStack(void);
     void removeStack(void);
-    void stackPop(void);
-    void stackAppend(void);
+    Value stackPop(void);
+    void stackAppend(Value &value);
     bool checkVariable(std::string &name);
     Variable getVariable(std::string &name);
-    void setVariable(std::string &name, Value value);
+    void setVariable(std::string &name, Variable &value);
 };
 
 #endif
