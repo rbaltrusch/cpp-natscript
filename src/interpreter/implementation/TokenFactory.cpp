@@ -32,12 +32,14 @@ std::shared_ptr<Token> TokenFactory::createToken(const std::string& string)
     throw std::invalid_argument(message);
 };
 
-Variable TokenFactory::createVariable(const std::string &name)
+std::shared_ptr<Value> TokenFactory::createVariable(const std::string &name)
 {
-    return Variable(name);
+    Variable variable(name);
+    return std::shared_ptr<Value>(&variable);
 };
 
-Value TokenFactory::createValue(std::any &value)
+std::shared_ptr<Value> TokenFactory::createValue(std::any &value)
 {
-    return Value(value);
+    Value variable(value);
+    return std::shared_ptr<Value>(&variable);
 };

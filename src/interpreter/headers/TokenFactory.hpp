@@ -25,8 +25,8 @@ class TokenFactory
 public:
     TokenFactory(ConstructorMap tokens, ConstructorMap regexTokens);
     std::shared_ptr<Token> createToken(const std::string& string);
-    static Variable createVariable(const std::string &name);
-    static Value createValue(std::any &value);
+    static std::shared_ptr<Value> createVariable(const std::string &name);
+    static std::shared_ptr<Value> createValue(std::any &value);
 };
 
 #endif
