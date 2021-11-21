@@ -24,13 +24,15 @@ int main()
     TokenFactory tokenFactory(tokens, regexTokens);
 
     Lexer lexer(tokenFactory);
-    string text = "this is a true test";
-    for (std::shared_ptr<Token> tok : lexer.lex(text))
-    {
-        tok->print();
-    }
-
     Parser parser;
     Interpreter interpreter;
+    string text = "this is a true test";
+    auto lexedTokens = lexer.lex(text);
+    auto parsedTokens = parser.parse(lexedTokens);
+    for (auto tok : parsedTokens)
+    {
+        tok.print();
+    }
+
     cout << "done!";
 }
