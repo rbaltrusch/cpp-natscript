@@ -10,10 +10,6 @@ Author: R. Baltrusch
 #include "../interpreter/headers/Token.hpp"
 #include "Tokens.hpp"
 
-//template <class T>
-//Token create(std::any *value, int line) { return T(value, line); }
-//Token *(*createToken)(std::any *value, int line) = create<Token>(value, line);
-
 class TrueToken : public Token
 {
 public:
@@ -54,22 +50,17 @@ protected:
 
 ConstructorMap createTokensMap(void)
 {
-    //Token token = create<Token>(&value, 1);
-
-    //std::unique_ptr<Token> *(*createToken)(std::any * value, int line) = create<Token>(value, line);
     ConstructorMap tokens;
     tokens["this"] = create<Token>;
     tokens["is"] = create<Token>;
     tokens["a"] = create<Token>;
     tokens["true"] = create<TrueToken>;
     tokens["test"] = create<TestToken>;
-    //{{"a", &createToken}};
     return tokens;
 };
 
 ConstructorMap createRegexTokensMap(void)
 {
     ConstructorMap regexTokens;
-    //{{"a", &createToken}};
     return regexTokens;
 };
