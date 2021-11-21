@@ -31,3 +31,13 @@ std::shared_ptr<Token> TokenFactory::create_token(const std::string& string)
     std::string message = messageStream.str();
     throw std::invalid_argument(message);
 };
+
+Variable TokenFactory::create_variable(const std::string &name)
+{
+    return Variable(name);
+};
+
+Value TokenFactory::create_value(std::any &value)
+{
+    return Value(value);
+};

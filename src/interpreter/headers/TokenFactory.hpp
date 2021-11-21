@@ -6,6 +6,7 @@ Author: R. Baltrusch
 #ifndef TOKENFACTORY_H
 #define TOKENFACTORY_H
 
+#include <any>
 #include <map>
 #include <regex>
 #include <string>
@@ -24,8 +25,8 @@ class TokenFactory
 public:
     TokenFactory(ConstructorMap tokens, ConstructorMap regexTokens);
     std::shared_ptr<Token> create_token(const std::string& string);
-    static Variable create_variable(const std::string string);
-    static Value create_value(const std::string string);
+    static Variable create_variable(const std::string &name);
+    static Value create_value(std::any &value);
 };
 
 #endif
