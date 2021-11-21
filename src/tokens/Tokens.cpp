@@ -57,13 +57,12 @@ ConstructorMap createTokensMap(void)
     //Token token = create<Token>(&value, 1);
 
     //std::unique_ptr<Token> *(*createToken)(std::any * value, int line) = create<Token>(value, line);
-    TokenConstructor createToken = create<Token>;
     ConstructorMap tokens;
-    tokens["this"] = createToken;
-    tokens["is"] = createToken;
-    tokens["a"] = createToken;
+    tokens["this"] = create<Token>;
+    tokens["is"] = create<Token>;
+    tokens["a"] = create<Token>;
     tokens["true"] = create<TrueToken>;
-    tokens["test"] = createToken;
+    tokens["test"] = create<TestToken>;
     //{{"a", &createToken}};
     return tokens;
 };
