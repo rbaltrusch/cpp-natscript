@@ -19,10 +19,10 @@ struct ExpectedToken
 {
 public:
     std::vector<int> types{};
-    int run_order{};
+    int runOrder{};
     bool optional{};
-    ExpectedToken(std::vector<int> types, int run_order, bool optional)
-        : run_order{run_order},
+    ExpectedToken(std::vector<int> types, int runOrder, bool optional)
+        : runOrder{runOrder},
           optional{optional}
     {
         for (auto type : types)
@@ -47,7 +47,7 @@ protected:
 
     std::any value;
     int line;
-    int run_order;
+    int runOrder;
     std::vector<Token> tokens;
     std::deque<ExpectedToken> expectedTokensCopy;
 

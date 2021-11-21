@@ -11,7 +11,7 @@ Author: R. Baltrusch
 Token::Token(std::any value, int line)
     : value{value},
       line{line},
-      run_order{0} {};
+      runOrder{0} {};
 
 void Token::print(void)
 {
@@ -89,7 +89,7 @@ void Token::checkTypes(Token &token)
         this->expectedTokensCopy.pop_front();
         if (this->checkMatchingTypes(token, expectedToken))
         {
-            token.setRunOrder(expectedToken.run_order);
+            token.setRunOrder(expectedToken.runOrder);
             return;
         }
 
@@ -104,12 +104,12 @@ void Token::checkTypes(Token &token)
 
 void Token::setRunOrder(int runOrder)
 {
-    this->run_order = runOrder;
+    this->runOrder = runOrder;
 };
 
 int Token::getRunOrder(void)
 {
-    return this->run_order;
+    return this->runOrder;
 };
 
 int Token::getType(void)
