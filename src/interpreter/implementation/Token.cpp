@@ -16,7 +16,7 @@ Token::Token(std::any value, int line)
 void Token::print(void)
 {
     std::cout << "line: " << this->line << std::endl;
-    std::cout << "value: " << std::any_cast<int>(this->value) <<std::endl;
+    std::cout << "value: " << std::any_cast<int>(this->value) << std::endl;
     std::cout << "type: " << this->getType() << std::endl;
     std::cout << "inside:" << std::endl;
     for (auto token : this->tokens)
@@ -140,7 +140,6 @@ std::any Token::getValue(void)
     return this->value;
 };
 
-void Token::run(Interpreter &interpreter)
-{
+void Token::run(Interpreter &interpreter){
     // TODO
 };
