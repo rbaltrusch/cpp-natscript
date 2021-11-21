@@ -39,7 +39,7 @@ protected:
     int line;
     int run_order;
     std::vector<Token> tokens;
-    std::vector<ExpectedToken> expectedTokensCopy;
+    std::deque<ExpectedToken> expectedTokensCopy;
 
 public:
     Token(std::any value, int line);
