@@ -17,19 +17,10 @@ Author: R. Baltrusch
 
 using namespace std;
 
-void print(std::shared_ptr<Token> &token) { token->print(); };
-
 int main()
 {
     ConstructorMap tokens = createTokensMap();
     ConstructorMap regexTokens = createRegexTokensMap();
-
-
-    std::any value = 1;
-    std::shared_ptr<Token> myToken = tokens["a"](value, 1);
-    print(myToken);
-    myToken->print();
-
     TokenFactory tokenFactory(tokens, regexTokens);
 
     Lexer lexer(tokenFactory);
