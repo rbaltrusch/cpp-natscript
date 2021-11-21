@@ -10,6 +10,7 @@ Author: R. Baltrusch
 #include <stack>
 #include <string>
 #include <vector>
+#include <memory>
 
 #include "Value.hpp"
 #include "Token.hpp"
@@ -17,19 +18,19 @@ Author: R. Baltrusch
 class Interpreter
 {
 
-    std::stack<std::stack<Value>> stacks;
-    std::vector<std::map<std::string, Variable>> variables;
+    std::stack<std::stack<std::shared_ptr<Value>>> stacks;
+    std::vector<std::map<std::string, std::shared_ptr<Value>>> variables;
 
 public:
     Interpreter();
     void interpret(Token &token);
     void addStack(void);
     void removeStack(void);
-    Value stackPop(void);
-    void stackAppend(Value &value);
+    std::shared_ptr<Value> stackPop(void);
+    void stackAppend(std::shared_ptr<Value> value);
     bool checkVariable(std::string &name);
-    Variable getVariable(std::string &name);
-    void setVariable(std::string &name, Variable &value);
+    std::shared_ptr<Value> getVariable(std::string &name);
+    void setVariable(std::string &name, std::shared_ptr<Value> value);
 };
 
 #endif
