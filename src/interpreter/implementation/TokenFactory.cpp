@@ -15,7 +15,7 @@ TokenFactory::TokenFactory(ConstructorMap tokens, ConstructorMap regexTokens)
     : tokens(tokens),
       regexTokens(regexTokens){};
 
-std::shared_ptr<Token> TokenFactory::create_token(const std::string& string)
+std::shared_ptr<Token> TokenFactory::createToken(const std::string& string)
 {
     ConstructorMap::iterator iterator = this->tokens.find(string);
     if (iterator != this->tokens.end())
@@ -32,12 +32,12 @@ std::shared_ptr<Token> TokenFactory::create_token(const std::string& string)
     throw std::invalid_argument(message);
 };
 
-Variable TokenFactory::create_variable(const std::string &name)
+Variable TokenFactory::createVariable(const std::string &name)
 {
     return Variable(name);
 };
 
-Value TokenFactory::create_value(std::any &value)
+Value TokenFactory::createValue(std::any &value)
 {
     return Value(value);
 };

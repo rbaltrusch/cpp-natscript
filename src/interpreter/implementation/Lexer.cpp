@@ -19,7 +19,7 @@ std::deque<std::shared_ptr<Token>> Lexer::lex(std::string &text)
     std::deque<std::string> strings = this->split(text);
     for ( const std::string& string : strings)
     {
-        std::shared_ptr<Token> token = this->tokenFactory.create_token(string);
+        std::shared_ptr<Token> token = this->tokenFactory.createToken(string);
         tokens.push_back(token);
     }
     return tokens;
