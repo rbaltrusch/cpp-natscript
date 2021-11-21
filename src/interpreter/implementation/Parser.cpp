@@ -37,7 +37,8 @@ std::vector<Token> Parser::parse(std::deque<std::shared_ptr<Token>> &tokens)
         }
         else
         {
-            parsedTokens.push_back(*token);
+            parsedTokens.push_back(this->tokenStack.top());
+            this->tokenStack.pop();
         }
         this->tokenStack.push(*token);
 
