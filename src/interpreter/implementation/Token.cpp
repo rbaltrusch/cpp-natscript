@@ -11,13 +11,7 @@ Author: R. Baltrusch
 Token::Token(std::any value, int line)
     : value{value},
       line{line},
-      run_order{0}
-{
-    for (auto expectedToken : this->getExpectedTokens())
-    {
-        this->expectedTokensCopy.push_back(expectedToken);
-    }
-};
+      run_order{0} {};
 
 void Token::print(void)
 {
