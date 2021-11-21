@@ -17,9 +17,19 @@ Author: R. Baltrusch
 
 struct ExpectedToken
 {
+public:
     std::vector<int> types{};
     int run_order{};
     bool optional{};
+    ExpectedToken(std::vector<int> types, int run_order, bool optional)
+        : run_order{run_order},
+          optional{optional}
+    {
+        for (auto type : types)
+        {
+            this->types.push_back(type);
+        }
+    }
 };
 
 class BaseToken;
