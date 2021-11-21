@@ -103,5 +103,7 @@ ConstructorMap createTokensMap(void)
 ConstructorMap createRegexTokensMap(void)
 {
     ConstructorMap regexTokens;
+    regexTokens["^\\d+$"] = create<Integer>;
+    regexTokens["^\\w+$"] = create<VarName>;
     return regexTokens;
 };
