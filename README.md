@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+
 # C++ implementation of Natscript Interpreter
 C++ translation of Natscript interpreter previously implemented in Python.
 
