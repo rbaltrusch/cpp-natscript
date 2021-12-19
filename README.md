@@ -33,6 +33,10 @@ Tutorials will be written once more commands are supported by Natscript.
 
 Written in C++17 using VS Code, g++ v11.2.0.
 
+## Python
+
+The python implementation of this interpreter can be found [here](https://github.com/rbaltrusch/python_interpreter).
+
 ## License
 
 This repository is open-source software available under the [MIT license](https://github.com/rbaltrusch/cpp_interpreter/blob/master/LICENSE).
