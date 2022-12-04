@@ -2,6 +2,7 @@
 Author: R. Baltrusch
 */
 
+#include <iostream>
 #include <stack>
 #include <memory>
 #include <utility>
@@ -13,7 +14,14 @@ Interpreter::Interpreter() : stacks(), variables(){};
 
 void Interpreter::interpret(std::shared_ptr<Token> token)
 {
-
+    try
+    {
+        token->run(*this);
+    }
+    catch(const std::exception& e)
+    {
+        throw e;
+    }
 };
 
 void Interpreter::addStack(void)
@@ -33,6 +41,7 @@ void Interpreter::removeStack(void)
 
 std::shared_ptr<Value> Interpreter::stackPop(void)
 {
+    //FIXME: handle empty stack
     std::shared_ptr<Value> value = this->stacks.top().top();
     this->stacks.top().pop();
     return value;

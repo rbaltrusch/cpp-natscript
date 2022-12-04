@@ -5,8 +5,10 @@ Author: R. Baltrusch
 #include <any>
 #include <iostream>
 #include <stdexcept>
+#include <algorithm>
 
 #include "../headers/Token.hpp"
+#include "../../tokens/Tokens.hpp"
 
 Token::Token(std::any value, int line)
     : value{value},
@@ -21,7 +23,9 @@ void Token::print(void)
     std::cout << "inside:" << std::endl;
     for (auto token : this->tokens)
     {
+        std::cout << "----";
         token.print();
+        std::cout << "----";
     }
     std::cout << std::endl;
 };
@@ -141,5 +145,18 @@ std::any Token::getValue(void)
 };
 
 void Token::run(Interpreter &interpreter){
-    // TODO
+    if (!this->getSatisfied())
+    {
+        throw std::invalid_argument("SyntaxException: token is not satisfied");
+    }
+
+/*     std::sort(this->tokens.begin(),
+              this->tokens.end(),
+              [](auto a, auto b) {return a.runOrder < b.runOrder; }); */
+    for (auto token : this->tokens)
+    {
+        std::cout << "running: " << token.getType() << std::endl;
+        token.run(interpreter);
+    }
+    this->runSelf(interpreter);
 };

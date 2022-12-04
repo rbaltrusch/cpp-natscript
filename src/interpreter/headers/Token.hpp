@@ -53,7 +53,7 @@ protected:
 
 public:
     Token(std::any value, int line);
-    void print(void);
+    virtual void print(void);
     virtual void run(Interpreter &interpreter);
     bool checkOptionalToken(Token &token);
     void addToken(Token &token);
@@ -71,7 +71,6 @@ public:
 protected:
     virtual std::vector<ExpectedToken> getExpectedTokens(void);
     virtual void runSelf(Interpreter &interpreter){};
-    std::vector<RunFunction> getRunFunctions(void);
     void checkTypes(Token &token);
 };
 
