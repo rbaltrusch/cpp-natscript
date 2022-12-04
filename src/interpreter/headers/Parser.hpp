@@ -11,14 +11,17 @@ Author: R. Baltrusch
 
 #include "Token.hpp"
 
+typedef std::vector<std::shared_ptr<Token>> TokenVector;
+typedef std::stack<std::shared_ptr<Token>> TokenStack;
+
 class Parser
 {
 
-    std::stack<Token> tokenStack;
+    TokenStack tokenStack;
 
 public:
     Parser();
-    std::vector<Token> parse(std::deque<std::shared_ptr<Token>> &tokens);
+    TokenVector parse(std::deque<std::shared_ptr<Token>> tokens);
 };
 
 #endif

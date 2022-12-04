@@ -11,7 +11,7 @@ Author: R. Baltrusch
 
 Interpreter::Interpreter() : stacks(), variables(){};
 
-void Interpreter::interpret(Token &token)
+void Interpreter::interpret(std::shared_ptr<Token> token)
 {
 
 };

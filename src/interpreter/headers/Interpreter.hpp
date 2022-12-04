@@ -23,7 +23,7 @@ class Interpreter
 
 public:
     Interpreter();
-    void interpret(Token &token);
+    void interpret(std::shared_ptr<Token> token);
     void addStack(void);
     void removeStack(void);
     std::shared_ptr<Value> stackPop(void);

@@ -11,9 +11,9 @@ Author: R. Baltrusch
 
 Parser::Parser() : tokenStack(){};
 
-std::vector<Token> Parser::parse(std::deque<std::shared_ptr<Token>> &tokens)
+TokenVector Parser::parse(std::deque<std::shared_ptr<Token>> tokens)
 {
-    std::vector<Token> parsedTokens;
+    TokenVector parsedTokens;
 
     while (!tokens.empty())
     {
@@ -27,22 +27,22 @@ std::vector<Token> Parser::parse(std::deque<std::shared_ptr<Token>> &tokens)
         tokens.pop_front();
         if (this->tokenStack.empty())
         {
-            tokenStack.push(*token);
+            tokenStack.push(token);
             continue;
         }
 
-        if (!this->tokenStack.top().getSatisfied() || this->tokenStack.top().checkOptionalToken(*token))
+        if (!this->tokenStack.top()->getSatisfied() || this->tokenStack.top()->checkOptionalToken(*token))
         {
-            this->tokenStack.top().addToken(*token);
+            this->tokenStack.top()->addToken(*token);
         }
         else
         {
             parsedTokens.push_back(this->tokenStack.top());
             this->tokenStack.pop();
         }
-        this->tokenStack.push(*token);
+        this->tokenStack.push(token);
 
-        while (this->tokenStack.top().getFull())
+        while (this->tokenStack.top()->getFull())
         {
             auto token = this->tokenStack.top();
             this->tokenStack.pop();
