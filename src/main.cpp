@@ -13,7 +13,7 @@ Author: R. Baltrusch
 #include "interpreter/headers/Parser.hpp"
 #include "interpreter/headers/TokenFactory.hpp"
 #include "interpreter/headers/Interpreter.hpp"
-#include "tokens/tokens.hpp"
+#include "tokens/Tokens.hpp"
 
 using namespace std;
 
@@ -26,13 +26,16 @@ int main()
     Lexer lexer(tokenFactory);
     Parser parser;
     Interpreter interpreter;
-    string text = "this is a true test";
+    //string text = "set a to 1 and print 2";
+    string text = "1";
     auto lexedTokens = lexer.lex(text);
     auto parsedTokens = parser.parse(lexedTokens);
-    for (auto tok : parsedTokens)
+    for (auto token : parsedTokens)
     {
-        tok.print();
+        //interpreter.interpret(token);
+        //token->run(interpreter);
+        token->print();
     }
 
-    cout << "done!";
+    cout << "done!" << std::endl;
 }
