@@ -3,6 +3,7 @@ Author: R. Baltrusch
 */
 
 #include <map>
+#include <regex>
 #include <memory>
 #include <string>
 #include <sstream>
@@ -24,6 +25,20 @@ std::shared_ptr<Token> TokenFactory::createToken(const std::string& string)
         int line = 1;
         std::shared_ptr<Token> token = iterator->second(value, line);
         return token;
+    }
+
+    ConstructorMap::iterator regexIterator;
+    for ( regexIterator = this->regexTokens.begin(); regexIterator != this->regexTokens.end(); regexIterator++)
+    {
+        std::regex pattern(regexIterator->first);
+
+        if (std::regex_match(string, pattern))
+        {
+            std::any value = string;
+            int line = 1;
+            std::shared_ptr<Token> token = regexIterator->second(value, line);
+            return token;
+        }
     }
 
     std::stringstream messageStream;
